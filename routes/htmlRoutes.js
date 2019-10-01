@@ -1,4 +1,4 @@
-const db = ("./models");
+const db = require("../models");
 
 module.exports = app => {
     app.get("/", (request, response) => {

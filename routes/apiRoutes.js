@@ -42,18 +42,18 @@ module.exports = app => {
     })
 
     app.post("/comment/:id", (request, response) => {
-        db.Comment.create(request.body).then((error, comment) => {
+        db.Comment.create(request.body).then((comment, error) => {
             if (error) {
                 console.log(error);
             }
             else {
-                return db.Article.findOneAndUpdate({ _id: request.params.id }, { $push: { comments: comment._id } }, { new: true }).then((error, user) => {
+                db.Article.findOneAndUpdate({ _id: request.params.id }, { $push: { comments: comment._id } }, { new: true }).then((article, error) => {
                     if (error) {
                         console.log(error);
                         response.status(503).end();
                     }
                     else {
-                        console.log(user);
+                        console.log(article);
                         response.status(200).end();
                     }
                 })

@@ -1,0 +1,14 @@
+<h2>{{article.title}}</h2>
+<p>{{article.summary}}</p>
+<a href="{{article.url}}" target="_blank" rel="noopener noreferrer">Read More</a>
+<input id="comment" type="text" placeholder="Leave a comment...">
+<input id="name" type="text" placeholder="Your name...">
+<button id="submit" data-id="{{article._id}}">Add Comment</button>
+<div class="l-flex">
+    {{#each article.comments}}
+    <div class="card">
+        <p>"{{text}}"</p>
+        <h3>- {{creator}}</h3>
+    </div>
+    {{/each}}
+</div>

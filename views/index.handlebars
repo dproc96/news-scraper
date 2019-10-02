@@ -1,7 +1,10 @@
-{{#each articles}}
-<div>
-    <h2>{{title}}</h2>
-    <p>{{summary}}</p>
-    <a href="{{url}}" target="_blank" rel="noopener noreferrer">Read More</a>
+<div class="l-flex">
+    {{#each articles}}
+    <div class="card">
+        <h2>{{title}}</h2>
+        <p>{{summary}}</p>
+        <a href="{{url}}" target="_blank" rel="noopener noreferrer">Read More</a>
+        <a href="/articles/{{_id}}">View Comments</a>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
